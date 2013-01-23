@@ -75,8 +75,7 @@ echo "### Install and start postfix"
 
 echo "### Create the git user and keys"
 
-# Create the git user 
-/usr/sbin/adduser -r -m --shell /bin/bash --comment 'git version control' gituser
+
 
 # Create keys as the git user
 su - gituser -c 'ssh-keygen -q -N "" -t rsa -f ~/.ssh/id_rsa'
