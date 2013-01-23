@@ -76,23 +76,23 @@ echo "### Install and start postfix"
 echo "### Create the git user and keys"
 
 # Create the git user 
-/usr/sbin/adduser -r -m --shell /bin/bash --comment 'git version control' git
+/usr/sbin/adduser -r -m --shell /bin/bash --comment 'git version control' gituser
 
 # Create keys as the git user
-su - git -c 'ssh-keygen -q -N "" -t rsa -f ~/.ssh/id_rsa'
+su - gituser -c 'ssh-keygen -q -N "" -t rsa -f ~/.ssh/id_rsa'
 
 
 echo "### Set up Gitolite"
 
 # Run the installer as the git user
-su - git -c "gl-setup -q /home/git/.ssh/id_rsa.pub"
+su - gituser -c "gl-setup -q /home/git/.ssh/id_rsa.pub"
 
 # Change the umask (see whe gitlab wiki)
-sed -i 's/0077/0007/g' /home/git/.gitolite.rc
+sed -i 's/0077/0007/g' /home/gituser/.gitolite.rc
 
 # Change permissions on repositories and home (group access)
-chmod 750 /home/git
-chmod 770 /home/git/repositories
+chmod 750 /home/gituser
+chmod 770 /home/gituser/repositories
 
 
 echo "### Set up Gitolite access for Apache"
@@ -106,13 +106,13 @@ mkdir /var/www/.ssh
 ssh-keyscan -t rsa1,rsa,dsa localhost > /var/www/.ssh/known_hosts
 
 # Copy keys from the git user 
-cp /home/git/.ssh/id_rsa* /var/www/.ssh/
+cp /home/gituser/.ssh/id_rsa* /var/www/.ssh/
 
 # Apache will take ownership
 chown apache:apache -R /var/www/.ssh
 
 # Add the git group to apache
-usermod -G git apache
+usermod -G gituser apache
 
 
 echo "### Installing RVM and Ruby"
