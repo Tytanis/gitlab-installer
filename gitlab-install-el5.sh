@@ -77,9 +77,6 @@ echo "### Create the git user and keys"
 
 
 
-# Create keys as the git user
-su - gituser -c 'ssh-keygen -q -N "" -t rsa -f ~/.ssh/id_rsa'
-
 
 echo "### Set up Gitolite"
 
