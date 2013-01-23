@@ -81,7 +81,7 @@ echo "### Create the git user and keys"
 echo "### Set up Gitolite"
 
 # Run the installer as the git user
-su - gituser -c "gl-setup -q /home/git/.ssh/id_rsa.pub"
+su - gituser -c "gl-easy-setup -q /home/git/.ssh/id_rsa.pub"
 
 # Change the umask (see whe gitlab wiki)
 sed -i 's/0077/0007/g' /home/gituser/.gitolite.rc
