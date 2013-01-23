@@ -66,41 +66,6 @@ echo "### Installing packages"
 # Install epel-release
 
 
-# Modified list from gitlabhq
-yum install -y \
-make \
-libtool \
-openssh-clients \
-gcc \
-libxml2 \
-libxml2-devel \
-libxslt \
-libxslt-devel \
-python-devel \
-wget \
-readline-devel \
-ncurses-devel \
-gdbm-devel \
-glibc-devel \
-tcl-devel \
-openssl-devel \
-db4-devel \
-byacc \
-httpd \
-gcc-c++ \
-curl-devel \
-openssl-devel \
-zlib-devel \
-httpd-devel \
-apr-devel \
-apr-util-devel \
-libicu-devel \
-gitolite \
-git \
-redis \
-sudo \
-mysql-devel \
-postgresql-devel
 
 # Install sqlite-devel from atrpms (sqlite > 3.3 is not provided by epel or centos)
 rpm -Uvh http://dl.atrpms.net/el5-$(uname -i)/atrpms/testing/sqlite-3.6.20-1.el5.$(uname -i).rpm
