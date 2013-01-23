@@ -55,10 +55,10 @@ echo "### Check if we are root"
 echo "### Configure SELinux"
 
 # Disable SELinux 
-sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
+
 
 # Turn off SELinux in this session
-setenforce 0
+
 
 
 echo "### Installing packages"
