@@ -64,7 +64,7 @@ echo "### Configure SELinux"
 echo "### Installing packages"
 
 # Install epel-release
-rpm -Uvh http://mirrors.kernel.org/fedora-epel/5/i386/epel-release-5-4.noarch.rpm
+
 
 # Modified list from gitlabhq
 yum install -y \
